@@ -6,7 +6,7 @@
 /*   By: blevrel <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 16:55:24 by blevrel           #+#    #+#             */
-/*   Updated: 2022/06/20 14:53:28 by blevrel          ###   ########.fr       */
+/*   Updated: 2022/06/22 18:50:53 by blevrel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef STRUCTURE_H
@@ -23,6 +23,7 @@ typedef struct s_window
 
 typedef struct s_sprites
 {
+	void	*border;
 	void	*tile;
 	void	*tile_hover;
 	void	*clicked_tile;

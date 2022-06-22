@@ -6,7 +6,7 @@
 #    By: blevrel <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/17 13:43:13 by blevrel           #+#    #+#              #
-#    Updated: 2022/06/19 09:46:21 by blevrel          ###   ########.fr        #
+#    Updated: 2022/06/21 15:11:59 by blevrel          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ CC		=	gcc
 CFLAGS	=	-Wall -Wextra -Werror
 
 SRCS	=	srcs/open_window.c srcs/load_sprites.c srcs/display_sprites.c \
-			srcs/event_management.c srcs/end_prog.c
+			srcs/event_management.c srcs/end_prog.c srcs/finished_map.c
 
 OBJS	=	${SRCS:.c=.o}
 

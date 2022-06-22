@@ -6,7 +6,7 @@
 /*   By: blevrel <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/18 14:42:37 by blevrel           #+#    #+#             */
-/*   Updated: 2022/06/19 09:45:29 by blevrel          ###   ########.fr       */
+/*   Updated: 2022/06/22 18:51:37 by blevrel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "minesweeper.h"
@@ -59,5 +59,6 @@ void	load_images(t_all *struc)
 			"images/nb_7_hover.xpm", &x, &x);
 	struc->sprites.nb_8_hover = mlx_xpm_file_to_image(struc->window.mlx_ptr,
 			"images/nb_8_hover.xpm", &x, &x);
-
+	struc->sprites.border = mlx_xpm_file_to_image(struc->window.mlx_ptr,
+			"images/border.xpm", &x, &x);
 }
