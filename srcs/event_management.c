@@ -6,7 +6,7 @@
 /*   By: blevrel <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/19 09:28:08 by blevrel           #+#    #+#             */
-/*   Updated: 2022/06/19 14:44:00 by blevrel          ###   ########.fr       */
+/*   Updated: 2022/06/23 15:33:46 by blevrel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "minesweeper.h"
@@ -24,11 +24,24 @@ int	keypress(int keycode, t_all *struc)
 	return (0);
 }
 
-int	mouse_hook(int x, int y, t_all *struc)
+int	mouse_move(int x, int y, t_all *struc)
 {
 	struc->mouse_pos.x = x / PIX;
 	struc->mouse_pos.y = y / PIX;
-	display_correct_sprite(struc);
+	display_correct_sprite(struc, 0);
+}
+
+int	mouse_click(int	button, int x, int y, t_all *struc)
+{
+	if (button == 1)
+	{
+		struc->mouse_pos.x = x / PIX;
+		struc->mouse_pos.y = y / PIX;
+		struc->mouse_pos.button = button;
+		display_correct_sprite(struc, 1);
+	}
+	//if (button == 2)
+	//afficher un flag
 }
 
 void	event_manager(t_all *struc)
@@ -37,6 +50,9 @@ void	event_manager(t_all *struc)
 		close_win_cross, struc);
 	mlx_hook(struc->window.win_ptr, KeyPress, KeyPressMask,
 		keypress, struc);
-	mlx_hook(struc->window.win_ptr, MotionNotify, PointerMotionMask, mouse_hook, struc);
+	mlx_hook(struc->window.win_ptr, MotionNotify, PointerMotionMask,
+		mouse_move, struc);
+	mlx_hook(struc->window.win_ptr, ButtonPress, ButtonPressMask,
+		mouse_click, struc);
 }
 

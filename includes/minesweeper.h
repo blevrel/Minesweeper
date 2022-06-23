@@ -6,7 +6,7 @@
 /*   By: blevrel <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 13:53:11 by blevrel           #+#    #+#             */
-/*   Updated: 2022/06/22 18:49:49 by blevrel          ###   ########.fr       */
+/*   Updated: 2022/06/23 10:35:50 by blevrel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef MINESWEEPER_H
@@ -31,9 +31,12 @@ int		keypress(int keycode, t_all *struc);
 void	event_manager(t_all *struc);
 void	end_prog(t_all *struc);
 void	destroy_mlx_ptr(t_all *struc);
-void	display_correct_sprite(t_all *struc);
+void	display_correct_sprite(t_all *struc, int trigger);
 void	display_hovered_sprites(t_all *struc);
 char	char_in_mat(t_all *struc, int x, int y);
 char	**gen_finished_mat(t_all *struc);
+void	*choose_sprite(t_all *struc);
+void	*choose_hover_sprite(t_all *struc);
+void	*choose_sprite_when_clicked(t_all *struc);
 
 # endif

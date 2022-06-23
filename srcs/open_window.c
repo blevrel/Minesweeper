@@ -6,7 +6,7 @@
 /*   By: blevrel <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 16:47:44 by blevrel           #+#    #+#             */
-/*   Updated: 2022/06/22 18:54:12 by blevrel          ###   ########.fr       */
+/*   Updated: 2022/06/23 17:13:18 by blevrel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "minesweeper.h"
@@ -84,26 +84,12 @@ char	**fill_random_matrix()
 int	main(int argc, char **argv)
 {
 	t_all	struc;
-	int	i = 0;
 
 	if (argc != 1)
 		return (0);
 	struc.window.mlx_ptr = mlx_init();
 	struc.matrix = fill_random_matrix();
-	while (i < HEIGHT)
-	{
-		ft_printf("%s\n", struc.matrix[i]);
-		i++;
-	}
-	i = 0;
-	ft_printf("\n\n\n\n\n");
 	struc.finished_mat = gen_finished_mat(&struc);
-	while (i < HEIGHT)
-	{
-		ft_printf("%s\n", struc.finished_mat[i]);
-		i++;
-	}
-
 	load_images(&struc);
 	struc.window.win_ptr = open_window(&struc);
 	event_manager(&struc);

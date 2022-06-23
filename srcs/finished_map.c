@@ -6,7 +6,7 @@
 /*   By: blevrel <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 14:28:31 by blevrel           #+#    #+#             */
-/*   Updated: 2022/06/22 18:44:23 by blevrel          ###   ########.fr       */
+/*   Updated: 2022/06/23 16:36:27 by blevrel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "minesweeper.h"
@@ -56,5 +56,7 @@ char	char_in_mat(t_all *struc, int x, int y)
 		}
 		check_y++;
 	}
+	if (count == 0)
+		return ('E');
 	return (count + 48);
 }
