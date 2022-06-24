@@ -6,21 +6,21 @@
 /*   By: blevrel <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/19 09:28:08 by blevrel           #+#    #+#             */
-/*   Updated: 2022/06/23 15:33:46 by blevrel          ###   ########.fr       */
+/*   Updated: 2022/06/24 14:17:52 by blevrel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "minesweeper.h"
 
 int	close_win_cross(t_all *struc)
 {
-	end_prog(struc);
+	end_prog(struc, 0);
 	return (0);
 }
 
 int	keypress(int keycode, t_all *struc)
 {
 	if (keycode == XK_Escape)
-		end_prog(struc);
+		end_prog(struc, 0);
 	return (0);
 }
 
@@ -33,15 +33,10 @@ int	mouse_move(int x, int y, t_all *struc)
 
 int	mouse_click(int	button, int x, int y, t_all *struc)
 {
-	if (button == 1)
-	{
-		struc->mouse_pos.x = x / PIX;
-		struc->mouse_pos.y = y / PIX;
-		struc->mouse_pos.button = button;
-		display_correct_sprite(struc, 1);
-	}
-	//if (button == 2)
-	//afficher un flag
+	struc->mouse_pos.x = x / PIX;
+	struc->mouse_pos.y = y / PIX;
+	struc->mouse_pos.button = button;
+	display_correct_sprite(struc, 1);
 }
 
 void	event_manager(t_all *struc)

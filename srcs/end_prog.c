@@ -6,12 +6,12 @@
 /*   By: blevrel <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/19 09:29:47 by blevrel           #+#    #+#             */
-/*   Updated: 2022/06/23 14:30:41 by blevrel          ###   ########.fr       */
+/*   Updated: 2022/06/24 15:35:51 by blevrel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "minesweeper.h"
 
-void	end_prog(t_all *struc)
+void	end_prog(t_all *struc, int trigger)
 {
 	int	i;
 
@@ -44,7 +44,9 @@ void	end_prog(t_all *struc)
 		mlx_destroy_image(struc->window.mlx_ptr, struc->sprites.nb_7);
 	if (struc->sprites.nb_8 != NULL)
 		mlx_destroy_image(struc->window.mlx_ptr, struc->sprites.nb_8);
-	/*if (struc->matrix)
+	if (struc->sprites.border != NULL)
+		mlx_destroy_image(struc->window.mlx_ptr, struc->sprites.border);
+	if (struc->matrix)
 	{
 		while (struc->matrix[i])
 		{
@@ -52,9 +54,23 @@ void	end_prog(t_all *struc)
 			i++;
 		}
 		free(struc->matrix);
-	}*/
+	}
+	i = 0;
+	if (struc->finished_mat)
+	{
+		while (struc->finished_mat[i])
+		{
+			free(struc->finished_mat[i]);
+			i++;
+		}
+		free(struc->finished_mat);
+	}
 	if (struc->window.mlx_ptr)
 		destroy_mlx_ptr(struc);
+	if (trigger == 1)
+		losing_screen();
+	if (trigger == 2)
+		winning_screen();
 	exit(1);
 }
 void	destroy_mlx_ptr(t_all *struc)
