@@ -6,7 +6,7 @@
 /*   By: blevrel <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/19 09:29:47 by blevrel           #+#    #+#             */
-/*   Updated: 2022/06/24 15:35:51 by blevrel          ###   ########.fr       */
+/*   Updated: 2022/06/26 12:34:55 by blevrel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "minesweeper.h"
@@ -65,8 +65,7 @@ void	end_prog(t_all *struc, int trigger)
 		}
 		free(struc->finished_mat);
 	}
-	if (struc->window.mlx_ptr)
-		destroy_mlx_ptr(struc);
+	destroy_mlx_ptr(struc);
 	if (trigger == 1)
 		losing_screen();
 	if (trigger == 2)

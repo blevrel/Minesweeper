@@ -6,7 +6,7 @@
 /*   By: blevrel <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 13:53:11 by blevrel           #+#    #+#             */
-/*   Updated: 2022/06/24 14:09:24 by blevrel          ###   ########.fr       */
+/*   Updated: 2022/06/26 12:27:38 by blevrel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef MINESWEEPER_H
@@ -41,5 +41,9 @@ void	*choose_sprite_when_clicked(t_all *struc);
 int		check_if_finished(t_all *struc);
 void	winning_screen();
 void	losing_screen();
+int		keypress_ending(int keypress, t_all *struc);
+int		close_end_win_cross(t_all *struc);
+void	destroy_ending_screen(t_all *struc);
+void	hooks(t_all *struc);
 
 # endif
