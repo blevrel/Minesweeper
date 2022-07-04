@@ -6,7 +6,7 @@
 /*   By: blevrel <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/18 15:34:04 by blevrel           #+#    #+#             */
-/*   Updated: 2022/06/24 13:25:15 by blevrel          ###   ########.fr       */
+/*   Updated: 2022/06/28 11:03:25 by blevrel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "minesweeper.h"
@@ -37,6 +37,8 @@ void	display_clicked_sprites(t_all *struc)
 			struc->mouse_pos.y * PIX);
 		struc->matrix[struc->mouse_pos.y][struc->mouse_pos.x]
 			= struc->finished_mat[struc->mouse_pos.y][struc->mouse_pos.x];
+		if (struc->matrix[struc->mouse_pos.y][struc->mouse_pos.x] == 'E')
+			expand_when_empty(struc, struc->mouse_pos.x, struc->mouse_pos.y);
 	}
 	if (struc->mouse_pos.button == 3)
 	{
@@ -59,7 +61,10 @@ void	display_clicked_sprites(t_all *struc)
 		}
 	}
 	if (check_if_finished(struc) == 0)
-		winning_screen(struc);
+	{
+		ft_printf("You win !");
+		end_prog(struc);
+	}
 }
 
 void	display_correct_sprite(t_all *struc, int trigger)

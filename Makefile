@@ -6,7 +6,7 @@
 #    By: blevrel <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/17 13:43:13 by blevrel           #+#    #+#              #
-#    Updated: 2022/06/24 14:11:01 by blevrel          ###   ########.fr        #
+#    Updated: 2022/06/28 10:25:09 by blevrel          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,8 @@ CFLAGS	=	-Wall -Wextra -Werror
 
 SRCS	=	srcs/open_window.c srcs/load_sprites.c srcs/display_sprites.c \
 			srcs/event_management.c srcs/end_prog.c srcs/finished_map.c \
-			srcs/choose_sprites.c srcs/ending_screen.c srcs/check_finished.c \
+			srcs/choose_sprites.c srcs/check_finished.c \
+			srcs/expand_when_empty.c
 
 OBJS	=	${SRCS:.c=.o}
 

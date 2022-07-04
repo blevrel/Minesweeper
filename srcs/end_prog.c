@@ -6,12 +6,12 @@
 /*   By: blevrel <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/19 09:29:47 by blevrel           #+#    #+#             */
-/*   Updated: 2022/06/26 12:34:55 by blevrel          ###   ########.fr       */
+/*   Updated: 2022/06/28 10:24:00 by blevrel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "minesweeper.h"
 
-void	end_prog(t_all *struc, int trigger)
+void	end_prog(t_all *struc)
 {
 	int	i;
 
@@ -66,10 +66,6 @@ void	end_prog(t_all *struc, int trigger)
 		free(struc->finished_mat);
 	}
 	destroy_mlx_ptr(struc);
-	if (trigger == 1)
-		losing_screen();
-	if (trigger == 2)
-		winning_screen();
 	exit(1);
 }
 void	destroy_mlx_ptr(t_all *struc)

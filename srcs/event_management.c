@@ -6,21 +6,21 @@
 /*   By: blevrel <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/19 09:28:08 by blevrel           #+#    #+#             */
-/*   Updated: 2022/06/24 14:17:52 by blevrel          ###   ########.fr       */
+/*   Updated: 2022/06/28 10:26:43 by blevrel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "minesweeper.h"
 
 int	close_win_cross(t_all *struc)
 {
-	end_prog(struc, 0);
+	end_prog(struc);
 	return (0);
 }
 
 int	keypress(int keycode, t_all *struc)
 {
 	if (keycode == XK_Escape)
-		end_prog(struc, 0);
+		end_prog(struc);
 	return (0);
 }
 

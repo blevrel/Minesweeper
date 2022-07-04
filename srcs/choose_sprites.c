@@ -6,7 +6,7 @@
 /*   By: blevrel <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 10:28:09 by blevrel           #+#    #+#             */
-/*   Updated: 2022/06/24 14:07:00 by blevrel          ###   ########.fr       */
+/*   Updated: 2022/06/28 10:27:24 by blevrel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "minesweeper.h"
@@ -31,7 +31,10 @@ void	*choose_sprite_when_clicked(t_all *struc)
 	if (struc->finished_mat[struc->mouse_pos.y][struc->mouse_pos.x] == 'E')
 		sprite = struc->sprites.clicked_tile;
 	if (struc->finished_mat[struc->mouse_pos.y][struc->mouse_pos.x] == 'B')
-		end_prog(struc, 1);
+	{
+		ft_printf("You lose !");
+		end_prog(struc);
+	}
 	if (struc->finished_mat[struc->mouse_pos.y][struc->mouse_pos.x] == '1')
 		sprite = struc->sprites.nb_1;
 	if (struc->finished_mat[struc->mouse_pos.y][struc->mouse_pos.x] == '2')
